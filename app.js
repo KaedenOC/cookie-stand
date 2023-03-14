@@ -15,7 +15,7 @@ let location1 = {
     cookiesPerHour: [], //this is an empty array that will hold all the cookies sold per hour
     custPerHour: [], //this is an empty array that will hold all the customers per hour
     totalCookies: 0,
-    getCustPerHour: function () {
+    getCustPerHour: function () { //this function gets the customers per hour and stores it in the custPerHour array
         for (let i = 0; i < hourArray.length; i++){ //this is the for loop for each hour
             this.custPerHour.push(randomCustNum(this.minCust, this.maxCust)); //this is the randomCustNum function that returns a random number between min and max per hour
         }
