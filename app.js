@@ -3,7 +3,7 @@
 // store min/max hourly cust and avg cookies per customer in objects
 const hourArray = ["6 am", "7 am", "8 am", "9 am", "10 am", "11 am", "12 am", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm"]
 
-function randomCustNum(min, max) {
+function randomCustNum(min, max) { //this function returns a random number between min and max
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -12,28 +12,28 @@ let location1 = {
     minCust: 23,
     maxCust: 65,
     avgCookieSale: 6.3,
-    cookiesPerHour: [],
-    custPerHour: [],
+    cookiesPerHour: [], //this is an empty array that will hold all the cookies sold per hour
+    custPerHour: [], //this is an empty array that will hold all the customers per hour
     totalCookies: 0,
     getCustPerHour: function () {
-        for (let i = 0; i < hourArray.length; i++){
-            this.custPerHour.push(randomCustNum(this.minCust, this.maxCust));
+        for (let i = 0; i < hourArray.length; i++){ //this is the for loop for each hour
+            this.custPerHour.push(randomCustNum(this.minCust, this.maxCust)); //this is the randomCustNum function that returns a random number between min and max per hour
         }
     },
-    getCookiesPerHour: function () {
-        this.getCustPerHour();
+    getCookiesPerHour: function () {  
+    this.getCustPerHour(); //calls getCustPerHour function
         for (let i = 0; i < hourArray.length; i++){
-            let hour1 = Math.ceil(this.custPerHour[i] * this.avgCookieSale);
-            this.cookiesPerHour.push(hour1);
-            this.totalCookies += hour1;
+            let hour1 = Math.ceil(this.custPerHour[i] * this.avgCookieSale); //this is the Math.ceil function that rounds the number to the nearest whole number
+            this.cookiesPerHour.push(hour1); //pushes the hourly cookies to the array
+            this.totalCookies += hour1; //adds the hourly cookies to the total
         }
     },
     render: function () {
-        this.getCookiesPerHour();
-        let seattleLi = document.getElementById("seattlelist");
-        for (let i = 0; i < hourArray.length; i++){
-            let liElement = document.createElement("li");
-            liElement.textContent = `${hourArray[i]}: ${this.cookiesPerHour[i]} cookies.`;
+        this.getCookiesPerHour(); //calls getCookiesPerHour function
+        let seattleLi = document.getElementById("seattlelist"); //creates a list item for each hour
+        for (let i = 0; i < hourArray.length; i++){ 
+            let liElement = document.createElement("li"); 
+            liElement.textContent = `${hourArray[i]}: ${this.cookiesPerHour[i]} cookies.`; //this is the liElement function that creates a list item for each hour
             seattleLi.appendChild(liElement);
         }
         let liElement = document.createElement("li");
