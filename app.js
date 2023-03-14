@@ -31,8 +31,8 @@ let location1 = {
     render: function () {
         this.getCookiesPerHour(); //calls getCookiesPerHour function
         let seattleLi = document.getElementById("seattlelist"); //creates a list item for each hour
-        for (let i = 0; i < hourArray.length; i++){ 
-            let liElement = document.createElement("li"); 
+        for (let i = 0; i < hourArray.length; i++){
+            let liElement = document.createElement("li");  //creates a list item
             liElement.textContent = `${hourArray[i]}: ${this.cookiesPerHour[i]} cookies.`; //this is the liElement function that creates a list item for each hour
             seattleLi.appendChild(liElement);
         }
