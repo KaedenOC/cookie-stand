@@ -3,6 +3,8 @@
 // store min/max hourly cust and avg cookies per customer in objects
 const hourArray = ["6 am", "7 am", "8 am", "9 am", "10 am", "11 am", "12 am", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm"]
 
+let store = []
+
 
 const tableElement = document.getElementById('table1');
 
@@ -15,19 +17,15 @@ function locationData(name, minCust, maxCust, avgCookieSale) {
     this.cookiesPerHour = [];
     this.custPerHour = [];
     this.totalCookies = 0;
+    store.push(this);
     // return statement is implied with a constructor function
 }
-let location1 = new locationData('Seattle', 23, 65, 6.3);
-let location2 = new locationData('Tokyo', 3, 24, 1.2);
-let location3 = new locationData('Dubai', 11, 38, 3.7);
-let location4 = new locationData('Paris', 20, 38, 2.3);
-let location5 = new locationData('Lima', 2, 16, 4.6,);
-
-console.log(location1);
-console.log(location2);
-console.log(location3);
-console.log(location4);
-console.log(location5);
+new locationData('Seattle', 23, 65, 6.3);
+new locationData('Tokyo', 3, 24, 1.2);
+new locationData('Dubai', 11, 38, 3.7);
+new locationData('Paris', 20, 38, 2.3);
+new locationData('Lima', 2, 16, 4.6,);
+console.log(store);
 
 // prototype method because it's a constructor function
 
@@ -80,18 +78,39 @@ locationData.prototype.renderTableElements = function(){ //this function renders
     locationRowEl.appendChild(tdTotalElement);
 };
 
+function renderFooter(){
+    let footRowEl = document.createElement('tr');
+    let footerElement = document.createElement('tfoot');
+    footerElement.appendChild(footRowEl);
+    let footHeader = document.createElement('th');
+    footHeader.textContent = 'Hourly Totals';
+    footRowEl.appendChild(footHeader);
+    tableElement.appendChild(footerElement);
+    let grandTotal = 0;
+    for (let i = 0; i < hourArray.length; i++){ //this loops through the hourArray
+        let hourlyTotal = 0;
+        for (let j = 0; j < store.length; j++){
+            let hourlyNum = store[j].cookiesPerHour[i];
+            hourlyTotal += hourlyNum; //this adds the value of the hourly cookies to the total
+            
+        }
+        grandTotal += hourlyTotal;
+        let hourlyTotalCell = document.createElement('td');
+        hourlyTotalCell.textContent = hourlyTotal;
+        footRowEl.appendChild(hourlyTotalCell);
+    }
+    let grandTotalCell = document.createElement('td');
+    grandTotalCell.textContent = grandTotal;
+    footRowEl.appendChild(grandTotalCell);
+    console.log(grandTotal);
 
+}
 let headerTotalEl = document.createElement('th');
 headerTotalEl.textContent = 'Daily Totals';
 tableElement.appendChild(headerTotalEl);
 
-location1.renderTableElements();
-location2.renderTableElements();
-location3.renderTableElements();
-location4.renderTableElements();
-location5.renderTableElements();
+for (let i = 0; i < store.length; i++){
+    store[i].renderTableElements();
+}
 
-let footerElement = document.createElement('tfoot');
-footerElement.textContent = 'Hourly Totals';
-tableElement.appendChild(footerElement);
-
+renderFooter();
