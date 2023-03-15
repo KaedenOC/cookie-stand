@@ -39,7 +39,7 @@ locationData.prototype.getCustPerHour = function(hourArray){ // this function re
 }
 
 locationData.prototype.getCookiesPerHour = function(){ //this function returns an array of cookies per hour
-    this.getCustPerHour(hourArray);
+    this.getCustPerHour(hourArray); //this function calls the function to get customers per hour
     for (let i = 0; i < hourArray.length; i++){
         let hour1 = Math.ceil(this.custPerHour[i] * this.avgCookieSale);
         this.cookiesPerHour.push(hour1);
