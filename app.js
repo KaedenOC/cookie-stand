@@ -70,9 +70,9 @@ locationData.prototype.renderTableElements = function(){ //this function renders
     locationRowHeadElement.textContent = this.name;
     locationRowEl.appendChild(locationRowHeadElement);
 
-    for (let i = 0; i < hourArray.length; i++){
-        let tdElement = document.createElement('td');
-        tdElement.textContent = this.cookiesPerHour[i];
+    for (let i = 0; i < hourArray.length; i++){ //this loops through the hourArray
+        let tdElement = document.createElement('td');//this creates a td element
+        tdElement.textContent = this.cookiesPerHour[i];//this sets the text content of the td element to the value of the hourly cookies
         locationRowEl.appendChild(tdElement);
     }
     let tdTotalElement = document.createElement('td');
