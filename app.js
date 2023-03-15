@@ -47,6 +47,9 @@ locationData.prototype.getCookiesPerHour = function(){ //this function returns a
     }
 }
 
+let emptHeader = document.createElement("th");
+tableElement.appendChild(emptHeader);
+
 //table header loop for hourArray
 
 for (let i = 0; i < hourArray.length; i++){
