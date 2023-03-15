@@ -47,6 +47,12 @@ locationData.prototype.getCookiesPerHour = function(){
     }
 }
 
+for (let i = 0; i < hourArray.length; i++){
+    let timeHeader = document.createElement('th');
+    timeHeader.textContent = hourArray[i];
+    tableElement.appendChild(timeHeader);
+}
+
 locationData.prototype.renderTableElements = function(){ //this function renders the table
     this.getCookiesPerHour();
     let locationRowEl = document.createElement('tr');
