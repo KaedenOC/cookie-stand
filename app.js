@@ -15,6 +15,7 @@ function locationData(name, minCust, maxCust, avgCookieSale) {
     this.cookiesPerHour = [];
     this.custPerHour = [];
     this.totalCookies = 0;
+    // return statement is implied with a constructor function
 }
 let location1 = new locationData('Seattle', 23, 65, 6.3);
 let location2 = new locationData('Tokyo', 3, 24, 1.2);
@@ -27,6 +28,8 @@ console.log(location2);
 console.log(location3);
 console.log(location4);
 console.log(location5);
+
+// prototype method because it's a constructor function
 
 locationData.prototype.randomCustNum = function(minCust, maxCust){
     return Math.floor(Math.random() * (maxCust - minCust + 1)) + minCust;
@@ -76,13 +79,21 @@ locationData.prototype.renderTableElements = function(){ //this function renders
     tdTotalElement.textContent = this.totalCookies;
     locationRowEl.appendChild(tdTotalElement);
 };
+    // for (let i = 0; i < cookiesPerHour[i]; i++){
 
-let footerRowEl = document.createElement('th');
-footerRowEl.textContent = 'Totals';
-tableElement.appendChild(footerRowEl);
+    // }
+
+let headerTotalEl = document.createElement('th');
+headerTotalEl.textContent = 'Daily Totals';
+tableElement.appendChild(headerTotalEl);
 
 location1.renderTableElements();
 location2.renderTableElements();
 location3.renderTableElements();
 location4.renderTableElements();
 location5.renderTableElements();
+
+let footerElement = document.createElement('tfoot');
+footerElement.textContent = 'Hourly Totals';
+tableElement.appendChild(footerElement);
+
