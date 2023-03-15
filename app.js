@@ -77,6 +77,10 @@ locationData.prototype.renderTableElements = function(){ //this function renders
     locationRowEl.appendChild(tdTotalElement);
 };
 
+let footerRowEl = document.createElement('th');
+footerRowEl.textContent = 'Totals';
+tableElement.appendChild(footerRowEl);
+
 location1.renderTableElements();
 location2.renderTableElements();
 location3.renderTableElements();
