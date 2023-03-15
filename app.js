@@ -79,9 +79,7 @@ locationData.prototype.renderTableElements = function(){ //this function renders
     tdTotalElement.textContent = this.totalCookies;
     locationRowEl.appendChild(tdTotalElement);
 };
-    // for (let i = 0; i < cookiesPerHour[i]; i++){ //or loop through the hour array??
 
-    // }
 
 let headerTotalEl = document.createElement('th');
 headerTotalEl.textContent = 'Daily Totals';
