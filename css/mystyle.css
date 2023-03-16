@@ -1,18 +1,26 @@
 body {
-    background-color: rgb(138, 102, 55) ;
+    background-color: rgb(175, 157, 133);
 }
 
 header {
-    background-color: rgb(177, 120, 46);
-    padding-bottom: 20px;
+    background-color: rgb(143, 115, 79);
     border-bottom: 2px solid rgb(20, 13, 3);
+}
+
+h1 {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 50px;
+    text-align: center;
 }
 
 .navrow {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+    background-color: rgb(175, 157, 133);
+    padding-top: 20px;
+    padding-bottom: 10px
 }
 
 .row {
