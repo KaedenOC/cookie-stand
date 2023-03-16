@@ -1,0 +1,52 @@
+body {
+    background-color: rgb(138, 102, 55) ;
+}
+
+header {
+    background-color: rgb(177, 120, 46);
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgb(20, 13, 3);
+}
+
+.navrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#logoimg {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 70px;
+    padding-left: 20px;
+}
+
+a {
+    margin-left: 200px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+#familypic {
+    width: 960px;
+    height: 400px;
+}
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    border: 2px solid black;
+}
+
+
+
+
