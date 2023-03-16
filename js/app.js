@@ -109,8 +109,8 @@ let headerTotalEl = document.createElement('th');
 headerTotalEl.textContent = 'Daily Totals';
 tableElement.appendChild(headerTotalEl);
 
-for (let i = 0; i < store.length; i++){
-    store[i].renderTableElements();
+for (let i = 0; i < store.length; i++){ //this function loops through the store array and then calls the renderTableElements function
+    store[i].renderTableElements(); 
 }
 
 renderFooter();
