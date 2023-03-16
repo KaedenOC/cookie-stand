@@ -24,7 +24,7 @@ new locationData('Seattle', 23, 65, 6.3);
 new locationData('Tokyo', 3, 24, 1.2);
 new locationData('Dubai', 11, 38, 3.7);
 new locationData('Paris', 20, 38, 2.3);
-new locationData('Lima', 2, 16, 4.6,);
+new locationData('Lima', 2, 16, 4.6);
 console.log(store);
 
 // prototype method because it's a constructor function
