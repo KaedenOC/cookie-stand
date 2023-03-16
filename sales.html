@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- <link rel="stylesheet" href="css/reset.css"> -->
 </head>
 <body>
     <header>
@@ -16,7 +17,7 @@
             <table id="table1"></table>
         </section>
         <section>
-            <form>
+            <form id="store-form">
                 <fieldset>
                     <legend>Add A Store</legend>
                     <section class="form-section">
@@ -29,13 +30,13 @@
                     </section>
                     <section class="form-section">
                         <label for="max-customers">Max Customers</label>
-                        <input type="number" id="max-customers" name="max_customers">
+                        <input type="number" id="max-customers" placeholder="Maximum # of Customers" name="max_customers">
                     </section>
                     <section class="form-section">
                         <label for="avg-cookiesale">Avg Cookie Sales</label>
                         <input type="number" id="avg-cookiesale" name="avg_cookiesale">
                     </section>
-                    <button type="submit">Submit</button>
+                    <button type="submit" id="button">Submit</button>
                 </fieldset>
             </form>
         </section>

@@ -114,3 +114,25 @@ for (let i = 0; i < store.length; i++){ //this function loops through the store 
 }
 
 renderFooter();
+
+
+let buttonElement = document.getElementById("button");
+let formElement = document.getElementById("store-form");
+
+function handleClick(){
+    console.log("click has happened");
+}
+
+buttonElement.addEventListener("click", handleClick);
+formElement.addEventListener("submit", function (event){
+    event.preventDefault();
+    let {location_name, min_customers, max_customers, avg_cookiesale} = event.target;
+    location_name = location_name.value;
+    min_customers = parseInt(min_customers.value);
+    max_customers = parseInt(max_customers.value);
+    avg_cookiesale = parseFloat(avg_cookiesale.value);
+
+    new locationData(location_name, min_customers, max_customers, avg_cookiesale);
+    console.log(store);
+
+})
