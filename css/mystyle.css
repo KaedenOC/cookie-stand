@@ -9,19 +9,18 @@ header {
 
 h1 {
     font-family: 'Yanone Kaffeesatz', sans-serif;
-    font-size: 50px;
-    text-align: center;
+    font-size: 30px;
 }
 
 .navrow {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background-color: rgb(175, 157, 133);
-    padding-top: 20px;
+    padding-top: 5px;
     padding-bottom: 10px;
-    padding-right: 100px;
+    padding-right: 20px;
+    margin-right: 50px;
 }
 
 .row {
@@ -32,16 +31,18 @@ h1 {
 }
 
 #logoimg {
-    margin-top: 10px;
     width: 200px;
     height: 50px;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 a {
-    margin-left: 200px;
+    margin-left: 50px;
     font-size: 20px;
     text-decoration: none;
+    background-color: rgba(255, 235, 205, 0.144);
+    padding: 5px;
+    border-radius: 2px;
 }
 
 #familypic {
