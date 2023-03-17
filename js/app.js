@@ -5,8 +5,8 @@ const hourArray = ["6 am", "7 am", "8 am", "9 am", "10 am", "11 am", "12 am", "1
 
 let store = []
 
-
 const tableElement = document.getElementById('table1');
+let footRowEl = document.createElement('tfoot');
 
 // this is an object constructor function
 function locationData(name, minCust, maxCust, avgCookieSale) {
@@ -63,29 +63,30 @@ locationData.prototype.renderTableElements = function(){ //this function renders
     this.getCookiesPerHour();
     let locationRowEl = document.createElement('tr');
     tableElement.appendChild(locationRowEl);
-
+    
     let locationRowHeadElement = document.createElement('th');
     locationRowHeadElement.textContent = this.name;
     locationRowEl.appendChild(locationRowHeadElement);
-
+    
     for (let i = 0; i < hourArray.length; i++){ //this loops through the hourArray
         let tdElement = document.createElement('td');//this creates a td element
         tdElement.textContent = this.cookiesPerHour[i];//this sets the text content of the td element to the value of the hourly cookies
         locationRowEl.appendChild(tdElement);
     }
+    
+    
     let tdTotalElement = document.createElement('td');
     tdTotalElement.textContent = this.totalCookies;
     locationRowEl.appendChild(tdTotalElement);
+    
 };
 
 function renderFooter(){
-    let footRowEl = document.createElement('tr');
-    let footerElement = document.createElement('tfoot');
-    footerElement.appendChild(footRowEl);
+    // let footRowEl = document.createElement('tr');
+    // footerElement.appendChild(footRowEl);
     let footHeader = document.createElement('th');
     footHeader.textContent = 'Hourly Totals';
     footRowEl.appendChild(footHeader);
-    tableElement.appendChild(footerElement);
     let grandTotal = 0;
     for (let i = 0; i < hourArray.length; i++){ //this loops through the hourArray
         let hourlyTotal = 0;
@@ -103,17 +104,21 @@ function renderFooter(){
     grandTotalCell.textContent = grandTotal;
     footRowEl.appendChild(grandTotalCell);
     console.log(grandTotal);
+    
+    // footerElement.appendChild(footRowEl);
+    tableElement.appendChild(footRowEl);
+};
 
-}
 let headerTotalEl = document.createElement('th');
 headerTotalEl.textContent = 'Daily Totals';
 tableElement.appendChild(headerTotalEl);
+
 
 for (let i = 0; i < store.length; i++){ //this function loops through the store array and then calls the renderTableElements function
     store[i].renderTableElements(); 
 }
 
-
+renderFooter();
 
 let buttonElement = document.getElementById("button");
 let formElement = document.getElementById("store-form");
@@ -126,10 +131,20 @@ function handleClick(){
 buttonElement.addEventListener("click", handleClick);
 formElement.addEventListener("submit", function (event){
     event.preventDefault();
-    let newCity = new locationData(event.target.location_name.value, parseInt(event.target.min_customers.value), parseInt(event.target.max_customers.value), parseInt(event.target.avg_cookiesale.value));
+    let newCity = new locationData(event.target.location_name.value, parseInt(event.target.min_customers.value), parseInt(event.target.max_customers.value), parseInt(event.target.avg_cookiesale.value)); //this creates a new locationData object
     console.log(store);
-    newCity.getCustPerHour(hourArray);
+    newCity.getCustPerHour(hourArray); //this calls the function to get customers per hour
     newCity.getCookiesPerHour();
-    // tableElement.innerHTML = '';
+    footRowEl.innerHTML = ""; //this clears the table
     
+    
+    newCity.renderTableElements();
+    renderFooter();
 });
+
+
+
+
+
+
+
