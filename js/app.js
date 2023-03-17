@@ -95,7 +95,7 @@ function renderFooter(){
             hourlyTotal += hourlyNum; //this adds the value of the hourly cookies to the total
             
         }
-        grandTotal += hourlyTotal;
+        grandTotal += hourlyTotal; //this adds the value of the hourly cookies to the total
         let hourlyTotalCell = document.createElement('td');
         hourlyTotalCell.textContent = hourlyTotal;
         footRowEl.appendChild(hourlyTotalCell);
