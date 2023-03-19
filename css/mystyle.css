@@ -70,10 +70,11 @@ main {
 }
 
 .locimg {
-    width: 150px;
+    width: 175px;
+    border: 1px solid black;
 }
 
-.locrow {
+.titlecol {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,6 +83,20 @@ main {
     border-bottom: 2px solid black;
 }
 
+.loc-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid black; */
+}
 
+.loc-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
 
 
