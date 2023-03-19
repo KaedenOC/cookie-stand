@@ -5,6 +5,8 @@ body {
 header {
     background-color: rgb(143, 115, 79);
     border-bottom: 2px solid rgb(20, 13, 3);
+    position: fixed;
+    width: 100%;
 }
 
 h1 {
@@ -57,7 +59,7 @@ a {
 }
 
 main {
-    max-width: 75%;
+    max-width: 960px;
     margin: 0 auto;
     border: 2px solid black;
 }
