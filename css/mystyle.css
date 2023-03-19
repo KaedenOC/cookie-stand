@@ -111,11 +111,17 @@ main {
     padding-bottom: 10px;
 }
 
-.about-col {
+.about-col p {
     display: flex;
     flex-direction: column;
     margin-left: 20px;
     margin-right: 20px;
+    margin-bottom: 20px;
     overflow-y: scroll;
+    max-height: 200px;
+}
+
+.about-col h4 {
+    text-align: center;
 }
 
