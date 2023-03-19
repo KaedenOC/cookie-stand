@@ -80,6 +80,11 @@ main {
     margin: 0 auto;
 }
 
+h5 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}
+
 .locimg {
     width: 175px;
     border: 1px solid black;
